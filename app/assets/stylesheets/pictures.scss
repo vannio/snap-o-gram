@@ -2,9 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+article {
+  background-color: #fff;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  margin-bottom: 4rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
 
 figure {
+  margin: 0 auto;
+
   img {
     width: 100%;
   }
+}
+
+.figure-controls,
+figcaption {
+  padding: 1rem;
 }
