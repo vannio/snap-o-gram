@@ -47,6 +47,8 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
+        @picture.file_path.recreate_versions!
+        
         format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
