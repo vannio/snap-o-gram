@@ -16,6 +16,7 @@ feature 'Picture Comments' do
       click_link(:Edit)
     end
     fill_in(:'comment[text]', with: 'Hello, this is edited comment')
+    click_button('Update Comment')
     expect(page).to have_content('Hello, this is edited comment')
     expect(page).to_not have_content('Hello, this is comment')
   end
