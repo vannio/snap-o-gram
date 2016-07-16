@@ -30,9 +30,14 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'carrierwave'
-gem 'mini_magick'
+# Use devise for user management
 gem 'devise'
+# Use carrierwave for image uploads
+gem 'carrierwave'
+# Use mini_magick to process images
+gem 'mini_magick'
+# User fog-aws to use AWS S3 for storage
+gem 'fog-aws'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
