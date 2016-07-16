@@ -35,10 +35,12 @@ class PictureUploader < CarrierWave::Uploader::Base
   process :colorize
 
   def colorize
-    manipulate! do |img|
-      img.modulate('120%').colorize(model.filter) if model.filter
-      img = yield(img) if block_given?
-      img
+    if model.filter
+      manipulate! do |img|
+        img.modulate('110%').colorize(model.filter)
+        img = yield(img) if block_given?
+        img
+      end
     end
   end
 
