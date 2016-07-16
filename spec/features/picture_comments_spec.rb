@@ -28,9 +28,18 @@ feature 'Picture Comments' do
     }
     click_link(:'Log Out')
     sign_up(user)
-    click_link(:Show)
+    click_link(:'Comments (1)')
     within('.picture-comments') do
       expect(page).to_not have_content('Edit')
     end
+  end
+
+  scenario 'User can see how many comments a photo has' do
+    fill_in(:'comment[text]', with: 'Hello, this is comment 2')
+    click_button(:'Add Comment')
+    fill_in(:'comment[text]', with: 'Hello, this is comment 3')
+    click_button(:'Add Comment')
+    click_link(:'Back')
+    expect(page).to have_content('Comments (3)')
   end
 end

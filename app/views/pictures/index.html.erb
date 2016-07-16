@@ -15,7 +15,11 @@
   </figure>
 
   <div class="picture-controls">
+    <% if picture.comments.length > 0 %>
+    <%= link_to "Comments (#{picture.comments.length})", picture %>
+    <% else %>
     <%= link_to 'Show', picture %>
+    <% end %>
     <% if author?(picture) %>
     <%= link_to 'Edit', edit_picture_path(picture) %>
     <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
