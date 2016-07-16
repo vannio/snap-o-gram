@@ -33,10 +33,13 @@
     </div>
     <% end %>
 
+    <% if current_user %>
     <%= form_for [@picture, @comment], class: 'comments' do |f| %>
       <%= f.text_field :text, class: 'comments-input' %>
       <%= f.submit 'Add Comment' %>
     <% end %>
+    <% end %>
+
   </div>
 
 </article>
