@@ -1,6 +1,6 @@
 <article class="picture">
   <header class="picture-header">
-    <strong><%= @picture.user.display_name %></strong>
+    <strong><%= link_to @picture.user.display_name, "/users/#{@picture.user_id}" %></strong>
     <%= @picture.created_at %>
   </header>
 

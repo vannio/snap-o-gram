@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get 'users/:id' => 'users#index'
+
   resources :pictures do
     resources :comments
   end
