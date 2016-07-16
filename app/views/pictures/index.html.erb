@@ -1,18 +1,20 @@
 <% @pictures.each do |picture| %>
-<article>
-  <header>
+<article class="picture">
+  <header class="picture-header">
     <strong><%= picture.user.display_name %></strong>
     <%= picture.created_at %>
   </header>
 
-  <figure>
+  <figure class="picture-container">
     <%= image_tag(picture.file_path) %>
     <% unless picture.caption.empty? %>
-      <figcaption><%= picture.caption %></figcaption>
+    <figcaption class="picture-caption">
+      <%= picture.caption %>
+    </figcaption>
     <% end %>
   </figure>
 
-  <div class="figure-controls">
+  <div class="picture-controls">
     <%= link_to 'Show', picture %>
     <%= link_to 'Edit', edit_picture_path(picture) %>
     <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>

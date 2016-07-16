@@ -1,10 +1,24 @@
-<figure>
-  <%= image_tag(@picture.file_path) %>
-  <figcaption><%= @picture.caption %></figcaption>
-  <td><%= link_to 'Show', @picture %></td>
-  <td><%= link_to 'Edit', edit_picture_path(@picture) %></td>
-  <td><%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</figure>
+<article class="picture">
+  <header class="picture-header">
+    <strong><%= @picture.user.display_name %></strong>
+    <%= @picture.created_at %>
+  </header>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
+  <figure class="picture-container">
+    <%= image_tag(@picture.file_path) %>
+    <% unless @picture.caption.empty? %>
+    <figcaption class="picture-caption">
+      <%= @picture.caption %>
+    </figcaption>
+    <% end %>
+  </figure>
+
+  <div class="picture-controls">
+    <%= link_to 'Show', @picture %>
+    <%= link_to 'Edit', edit_picture_path(@picture) %>
+    <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+
+</article>
+
 <%= link_to 'Back', pictures_path %>

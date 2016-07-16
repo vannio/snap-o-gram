@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-article {
+.picture {
   background-color: #fff;
   border: 1px solid #efefef;
   border-radius: 5px;
@@ -11,17 +11,21 @@ article {
   &:last-child {
     margin-bottom: 0;
   }
-}
 
-figure {
-  margin: 0 auto;
-
-  img {
-    width: 100%;
+  &-header {
+    padding: 1rem;
   }
-}
 
-.figure-controls,
-figcaption {
-  padding: 1rem;
+  &-container {
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-controls,
+  &-caption {
+    padding: 1rem;
+  }
 }
