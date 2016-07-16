@@ -7,7 +7,7 @@ nav {
   border-bottom: 1px solid #dbdbdb;
 
   a {
-    padding: 0 0.5rem;
+    padding-left: 0.5rem;
   }
 
   & > a,
@@ -21,5 +21,10 @@ nav {
     float: left;
     font-size: 2.5rem;
     font-family: 'Cookie', cursive;
+    
+    a {
+      padding-right: 0.5rem;
+      padding-left: 0;
+    }
   }
 }
