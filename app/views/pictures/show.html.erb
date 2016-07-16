@@ -19,23 +19,23 @@
     <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 
+  <div class="picture-comments">
+    <h3>Comments</h3>
+    <% @picture.comments.each do |comment| %>
+    <div>
+      <strong><%= comment.text %></strong>
+      <%= comment.user.display_name %>
+      <%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
+      <%= link_to 'Destroy', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <% end %>
+
+    <%= form_for [@picture, @comment], class: 'comments' do |f| %>
+      <%= f.text_field :text, class: 'comments-input' %>
+      <%= f.submit 'Add Comment' %>
+    <% end %>
+  </div>
+
 </article>
-
-<ul>
-<% @picture.comments.each do |comment| %>
-<li>
-    <strong><%= comment.text %></strong>
-    <%= comment.user.display_name %>
-    <%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
-    <%= link_to 'Destroy', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
-</li>
-<% end %>
-</ul>
-
-<%= form_for [@picture, @comment] do |f| %>
-  <%= f.label :comment %>
-  <%= f.text_area :text %>
-  <%= f.submit 'Add Comment' %>
-<% end %>
 
 <%= link_to 'Back', pictures_path %>

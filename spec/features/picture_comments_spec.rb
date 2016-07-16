@@ -3,8 +3,8 @@ feature 'Picture Comments' do
     sign_up
     upload_photo
     click_link(:Show)
-    fill_in(:comment, with: 'Hello, this is comment')
-    click_button(:'Add comment')
+    fill_in(:'comment[text]', with: 'Hello, this is comment')
+    click_button(:'Add Comment')
     click_link(:Show)
     expect(page).to have_content('Hello, this is comment')
   end
