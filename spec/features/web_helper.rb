@@ -13,3 +13,9 @@ def sign_up(params=USER)
   fill_in('user[password_confirmation]', with: params[:password])
   click_button('Sign up')
 end
+
+def upload_photo
+  click_link('New Picture')
+  attach_file('picture[file_path]', './spec/assets/test_1.jpg')
+  click_button :'Create Picture'
+end
