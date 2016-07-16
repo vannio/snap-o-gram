@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :require_author, only: [:edit, :destroy]
+  before_action :authenticate_user!, :except => [:index, :show]
 
   # GET /comments
   # GET /comments.json
@@ -21,10 +23,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    p'------------------------'
-    p params
     @picture = Picture.find(params[:picture_id])
-    p @comment = @picture.comments.find(params[:id])
   end
 
   # POST /comments
@@ -77,5 +76,12 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:text, :user_id, :picture_id).merge(user_id: current_user.id)
+    end
+
+    def require_author
+      unless set_comment.user == current_user
+        flash[:alert] = "You are not the author!"
+        redirect_to pictures_path # halts request cycle
+      end
     end
 end

@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :require_author, only: [:edit, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   # GET /pictures
   # GET /pictures.json
   def index
@@ -72,5 +74,12 @@ class PicturesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
       params.require(:picture).permit(:file_path, :caption)
+    end
+
+    def require_author
+      unless set_picture.user == current_user
+        flash[:alert] = "You are not the author!"
+        redirect_to pictures_path # halts request cycle
+      end
     end
 end

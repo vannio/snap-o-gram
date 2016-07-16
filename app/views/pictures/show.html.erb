@@ -23,8 +23,8 @@
     <h3>Comments</h3>
     <% @picture.comments.each do |comment| %>
     <div>
-      <strong><%= comment.text %></strong>
-      <%= comment.user.display_name %>
+      <strong><%= comment.user.display_name %></strong>
+      <%= comment.text %>
       <%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
       <%= link_to 'Destroy', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
