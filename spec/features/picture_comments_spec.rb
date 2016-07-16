@@ -26,7 +26,7 @@ feature 'Picture Comments' do
       display_name: 'another',
       password: 'supersecure'
     }
-    click_link(:'Log Out')
+    click_link(:'Log out')
     sign_up(user)
     click_link(:'Comments (1)')
     within('.picture-comments') do

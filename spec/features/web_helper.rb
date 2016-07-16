@@ -6,7 +6,7 @@ USER = {
 
 def sign_up(params=USER)
   visit('/')
-  click_link('Sign Up')
+  click_link('Sign up')
   fill_in('user[email]', with: params[:email])
   fill_in('user[display_name]', with: params[:display_name])
   fill_in('user[password]', with: params[:password])
@@ -15,7 +15,7 @@ def sign_up(params=USER)
 end
 
 def upload_photo
-  click_link('New Picture')
+  click_link('New picture')
   attach_file('picture[file_path]', './spec/assets/test_1.jpg')
   click_button :'Create Picture'
 end
