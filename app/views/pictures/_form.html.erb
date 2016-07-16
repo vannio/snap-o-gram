@@ -13,12 +13,31 @@
 
   <div class="field">
     <%= f.label :file_path %>
-    <%= f.file_field :file_path %>
+    <%= f.file_field :file_path, required: true %>
+  </div>
+
+  <div class="field field-radio">
+    <label>
+      No filter
+      <input type="radio" name="filter" value="0" checked>
+    </label>
+    <label>
+      Cool
+      <input type="radio" name="filter" value="10, 10, 0">
+    </label>
+    <label>
+      Fresh
+      <input type="radio" name="filter" value="10, 0, 10">
+    </label>
+    <label>
+      Warm
+      <input type="radio" name="filter" value="0, 10, 10">
+    </label>
   </div>
 
   <div class="field">
     <%= f.label :caption %>
-    <%= f.text_area :caption %>
+    <%= f.text_field :caption %>
   </div>
 
   <div class="actions">

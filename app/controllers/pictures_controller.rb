@@ -29,9 +29,10 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = current_user.pictures.new(picture_params)
-
     respond_to do |format|
       if @picture.save
+        @picture.file_path.recreate_versions!
+
         format.html { redirect_to pictures_url, notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
@@ -73,7 +74,7 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:file_path, :caption)
+      params.require(:picture).permit(:file_path, :caption, :filter).merge(filter: params[:filter])
     end
 
     def require_author

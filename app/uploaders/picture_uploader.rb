@@ -25,11 +25,22 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
-  process resize_to_fill: [600, 600]
 
   # def scale(width, height)
   #   # do something
   # end
+
+  process resize_to_fill: [800, 800]
+
+  process :colorize
+
+  def colorize
+    manipulate! do |img|
+      img.modulate('120%').colorize(model.filter) if model.filter
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
   # Create different versions of your uploaded files:
   # version :thumb do
