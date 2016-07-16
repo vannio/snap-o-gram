@@ -24,7 +24,7 @@
     <h3>Comments</h3>
     <% @picture.comments.each do |comment| %>
     <div class="comment-container">
-      <strong><%= comment.user.display_name %></strong>
+      <strong><%= link_to comment.user.display_name, "/users/#{comment.user_id}" %></strong>
       <%= comment.text %>
       <% if author?(comment) %>
       <span class="comment-controls"><%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
