@@ -14,9 +14,10 @@
   </figure>
 
   <div class="picture-controls">
-    <%= link_to 'Show', @picture %>
+    <% if author?(@picture) %>
     <%= link_to 'Edit', edit_picture_path(@picture) %>
     <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
 
   <div class="picture-comments">
@@ -25,8 +26,10 @@
     <div>
       <strong><%= comment.user.display_name %></strong>
       <%= comment.text %>
+      <% if author?(comment) %>
       <%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
       <%= link_to 'Destroy', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
     <% end %>
 

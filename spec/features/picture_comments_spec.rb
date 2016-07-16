@@ -5,7 +5,6 @@ feature 'Picture Comments' do
     click_link(:Show)
     fill_in(:'comment[text]', with: 'Hello, this is comment')
     click_button(:'Add Comment')
-    click_link(:Show)
   end
 
   scenario 'User can add a comment to a photo' do
@@ -31,9 +30,7 @@ feature 'Picture Comments' do
     sign_up(user)
     click_link(:Show)
     within('.picture-comments') do
-      click_link(:Edit)
+      expect(page).to_not have_content('Edit')
     end
-    expect(page).to have_content('You are not the author!')
-
   end
 end
