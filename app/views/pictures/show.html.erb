@@ -23,12 +23,12 @@
   <div class="picture-comments">
     <h3>Comments</h3>
     <% @picture.comments.each do |comment| %>
-    <div>
+    <div class="comment-container">
       <strong><%= comment.user.display_name %></strong>
       <%= comment.text %>
       <% if author?(comment) %>
-      <%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
-      <%= link_to 'Delete', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <span class="comment-controls"><%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
+      <%= link_to 'Delete', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %></span>
       <% end %>
     </div>
     <% end %>
