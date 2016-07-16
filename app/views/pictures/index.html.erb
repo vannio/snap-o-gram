@@ -1,6 +1,7 @@
 <% @pictures.each do |picture| %>
 <article>
   <header>
+    <%= picture.user.email %>
     <%= picture.created_at %>
   </header>
 
