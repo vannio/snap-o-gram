@@ -16,7 +16,7 @@
   <div class="picture-controls">
     <% if author?(@picture) %>
     <%= link_to 'Edit', edit_picture_path(@picture) %>
-    <%= link_to 'Destroy', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Delete', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
 
@@ -28,7 +28,7 @@
       <%= comment.text %>
       <% if author?(comment) %>
       <%= link_to 'Edit', edit_polymorphic_path([@picture, comment]) %>
-      <%= link_to 'Destroy', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Delete', polymorphic_path([@picture, comment]), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
     <% end %>
