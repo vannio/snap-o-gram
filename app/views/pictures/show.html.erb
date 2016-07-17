@@ -20,6 +20,7 @@
   </div>
   <% end %>
 
+  <% if current_user %>
   <div class="picture-controls">
     <% if find_like(@picture, current_user) %>
     <%= link_to 'Unlike', polymorphic_path([@picture, find_like(@picture, current_user)]), method: :delete %>
@@ -32,6 +33,7 @@
     <%= link_to 'Delete', @picture, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
+  <% end %>
 
   <div class="picture-comments">
     <h3>Comments</h3>
