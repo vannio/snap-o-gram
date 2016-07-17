@@ -13,7 +13,6 @@
   }
 
   &-header {
-    padding: 1rem;
     text-align: right;
 
     strong {
@@ -26,17 +25,17 @@
 
     img {
       width: 100%;
+      display: block;
     }
   }
 
-  &-controls,
-  &-caption,
-  &-comments {
-    padding: 1rem;
+  & > div,
+  &-header {
+    padding: 0.75rem;
   }
 
   .comment-container {
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
   }
 
   .comment-controls {

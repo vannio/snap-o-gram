@@ -14,12 +14,26 @@
     <% end %>
   </figure>
 
+  <% if picture.likes.length > 0 %>
+  <div class="picture-likes">
+    <strong><%= picture.likes.map { |like| like.user.display_name }.to_sentence %></strong>
+    <%= picture.likes.length > 1 ? 'like' : 'likes' %> this
+  </div>
+  <% end %>
+
   <div class="picture-controls">
+    <% if find_like(picture, current_user) %>
+    <%= link_to 'Unlike', polymorphic_path([picture, find_like(picture, current_user)]), method: :delete %>
+    <% else %>
+    <%= link_to 'Like', picture_likes_path(picture), method: 'post' %>
+    <% end %>
+
     <% if picture.comments.length > 0 %>
     <%= link_to "Comments (#{picture.comments.length})", picture %>
     <% else %>
     <%= link_to 'Show', picture %>
     <% end %>
+
     <% if author?(picture) %>
     <%= link_to 'Edit', edit_picture_path(picture) %>
     <%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
