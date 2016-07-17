@@ -18,7 +18,7 @@ class PictureUploader < CarrierWave::Uploader::Base
     if ENV['RAILS_ENV'] == 'production'
       "snapogram/uploads/#{model.class.to_s.underscore}/#{model.id}"
     else
-      "uploads/#{model.class.to_s.underscore}/#{model.id}"
+      "uploads/#{Rails.env}/#{model.class.to_s.underscore}/#{model.id}"
     end
   end
 
