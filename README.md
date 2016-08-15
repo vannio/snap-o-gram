@@ -1,24 +1,38 @@
-# README
+# Snapogram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Snapogram is the latest phenomenon in social photo-sharing apps.  Show off your photography with the hippest filters (cool, warm and neutral). Share photos from either a desktop browser or a mobile browser &mdash; whatever you fancy.
 
-Things you may want to cover:
+![Mobile screenshot 1](/docs/Screenshot_20160815-161835.png) * ![Mobile screenshot 2](/docs/Screenshot_20160815-161907.png)
 
-* Ruby version
+### Getting Started
 
-* System dependencies
+#### Prerequisites
+- [homebrew](http://brew.sh/)
+- [ruby](https://www.ruby-lang.org/en/)
 
-* Configuration
+#### Installation
+1. Install and configure postgresql:
 
-* Database creation
+	`brew install postgresql`
+	```
+	ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+	```
 
-* Database initialization
+1. Create the necessary databases
 
-* How to run the test suite
+	`psql postgres`
+	```
+	create database snapogram_development;
+	create database snapogram_test;
+	\q
+	```
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Run `bundle install` to install other dependencies
+1. Migrate the database with `bin/rails db:migrate RAILS_ENV=development`
 
-* Deployment instructions
+#### Server
+Start the server with `bin/rails s`
 
-* ...
+#### Testing
+Run tests with `rspec`
