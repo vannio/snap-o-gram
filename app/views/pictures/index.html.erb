@@ -2,7 +2,7 @@
 <article class="picture">
   <header class="picture-header">
     <strong><%= link_to picture.user.display_name, "/users/#{picture.user_id}" %></strong>
-    <%= picture.created_at %>
+		<%= formatDate(picture.created_at) %>
   </header>
 
   <figure class="picture-container">
