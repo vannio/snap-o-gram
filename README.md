@@ -3,6 +3,7 @@
 Snapogram is the latest phenomenon in social photo-sharing apps.  Show off your photography with the hippest filters (cool, warm and neutral). Share photos from either a desktop browser or a mobile browser &mdash; whatever you fancy.
 
 &nbsp;
+
 ![Mobile screenshot 1](/docs/Screenshot_20160815-161835.png) * ![Mobile screenshot 2](/docs/Screenshot_20160815-161907.png)
 
 &nbsp;
