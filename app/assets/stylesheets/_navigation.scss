@@ -2,9 +2,9 @@ nav {
   width: 100%;
   background-color: #fff;
   padding: 0 2em;
-  text-align: right;
-  vertical-align: middle;
+  // vertical-align: middle;
   border-bottom: 1px solid #dbdbdb;
+	display: table;
 
   a {
     padding-left: 0.5rem;
@@ -12,26 +12,27 @@ nav {
 
   & > a,
   .title {
-    line-height: 1rem;
+		line-height: 1.4;
+    // line-height: 1rem;
     margin: 0.5rem auto;
     display: inline-block;
 
     @media (min-width: 600px) {
-      line-height: 2rem;
+      // line-height: 2rem;
       margin: 1rem auto;
     }
   }
 
   & > a {
-    // display: block;
-
     @media (min-width: 600px) {
       display: inline-block;
     }
   }
 
   .title {
-    float: left;
+		display: table-cell;
+		vertical-align: middle;
+    // float: left;
     font-size: 2.5rem;
     font-family: 'Cookie', cursive;
 
@@ -40,4 +41,11 @@ nav {
       padding-left: 0;
     }
   }
+
+	.links {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		// float: right;
+	}
 }
